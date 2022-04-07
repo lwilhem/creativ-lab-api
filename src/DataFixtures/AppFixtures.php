@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Posts;
 use App\Entity\Ticket;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -20,6 +21,17 @@ class AppFixtures extends Fixture
             $ticket->setFile('asset/ticket/file-user-'. $i);
             $manager->persist($ticket);
         }
+        $manager->flush();
+        for($j; $j <= 50; $j++){
+            $post = new Posts();
+            $post->setName('Article'. $j);
+            $post->setContent('test');
+            $post->setCreatedAt(new \DateTime());
+            $post->setAuthor('author #'.$j);
+            $post->setMainPicture('assets/img/main_picture/picture'.$j.'.jpg');
+            $post->setPostPicture(null);
+            $manager->persist($post);
+        };
         $manager->flush();
     }
 }
