@@ -27,6 +27,9 @@ class Ticket
     #[ORM\Column(type: 'boolean')]
     private $isHandled;
 
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $ClosedAt;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -76,6 +79,18 @@ class Ticket
     public function setIsHandled(bool $isHandled): self
     {
         $this->isHandled = $isHandled;
+
+        return $this;
+    }
+
+    public function getClosedAt(): ?\DateTimeInterface
+    {
+        return $this->ClosedAt;
+    }
+
+    public function setClosedAt(?\DateTimeInterface $ClosedAt): self
+    {
+        $this->ClosedAt = $ClosedAt;
 
         return $this;
     }
