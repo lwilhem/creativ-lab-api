@@ -22,8 +22,6 @@ class TicketRepository extends ServiceEntityRepository
     }
 
     /**
-     * @throws ORMException
-     * @throws OptimisticLockException
      */
     public function add(Ticket $entity, bool $flush = true): void
     {
@@ -34,8 +32,6 @@ class TicketRepository extends ServiceEntityRepository
     }
 
     /**
-     * @throws ORMException
-     * @throws OptimisticLockException
      */
     public function remove(Ticket $entity, bool $flush = true): void
     {

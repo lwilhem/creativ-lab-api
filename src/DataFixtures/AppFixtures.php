@@ -22,7 +22,7 @@ class AppFixtures extends Fixture
             $manager->persist($ticket);
         }
         $manager->flush();
-        for($j; $j <= 50; $j++){
+        for($j=1; $j <= 50; $j++){
             $post = new Posts();
             $post->setName('Article'. $j);
             $post->setContent('test');
