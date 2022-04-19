@@ -16,10 +16,10 @@ class Posts
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $name;
+    private ?string $name;
 
     #[ORM\Column(type: 'text')]
-    private $content;
+    private ?string $content;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $author;
@@ -28,10 +28,10 @@ class Posts
     private $createdAt;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $main_picture;
+    private string $main_picture;
 
     #[ORM\Column(type: 'array', nullable: true)]
-    private $post_picture = [];
+    private array $post_picture = [];
 
     public function getId(): ?int
     {
